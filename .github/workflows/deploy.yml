@@ -48,8 +48,10 @@ jobs:
           npm ls next --depth=0 || true
           node -e "console.log('package.json next:', require('./package.json').dependencies && require('./package.json').dependencies.next)" || true
 
-      - name: Build
-        run: npm run build
+      - name: Build and export static site
+        run: |
+          npm run build
+          npx next export
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
