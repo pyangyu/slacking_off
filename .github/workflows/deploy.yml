@@ -31,6 +31,9 @@ jobs:
         run: |
           npm ci || npm install
 
+      - name: Ensure Next is installed
+        run: npm install next@16.1.6 --no-save
+
       - name: Build
         run: npm run build
 
