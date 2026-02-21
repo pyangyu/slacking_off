@@ -5,8 +5,7 @@ const nextConfig: NextConfig = {
   images: {
     unoptimized: true,
   },
-  // Set basePath if deploying to github.io/repo-name
-  // basePath: "/slacking-off-app",
+  basePath: "/slacking_off",
 };
 
 export default nextConfig;
