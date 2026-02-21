@@ -34,6 +34,20 @@ jobs:
       - name: Ensure Next is installed
         run: npm install next@16.1.6 --no-save
 
+      - name: "Debug: verify environment before build"
+        run: |
+          node -v || true
+          npm -v || true
+          pwd
+          ls -la
+          echo '--- node_modules ---'
+          ls -la node_modules || true
+          echo '--- node_modules/.bin ---'
+          ls -la node_modules/.bin || true
+          echo '--- npm ls next ---'
+          npm ls next --depth=0 || true
+          node -e "console.log('package.json next:', require('./package.json').dependencies && require('./package.json').dependencies.next)" || true
+
       - name: Build
         run: npm run build
 
